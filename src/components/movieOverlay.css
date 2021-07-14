@@ -1,0 +1,70 @@
+.overlay-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.close {
+  border: 1px solid #141E35;
+  background: none;
+  font-size: 25px;
+  font-weight: 200;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  line-height: 20px;
+}
+
+.movie-overlay {
+  position: relative;
+  margin: auto;
+  top: Calc(50vh - 240px);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 474px;
+  max-width: 583px;
+  background: #FFFFFF;
+  padding: 0px 20px 27px 27px;
+}
+
+.movie-overlay .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.movie-overlay .header .title {
+  /* margin: 0; */
+  padding: 0;
+}
+
+.movie-overlay .content {
+  display: flex;
+  flex: 1;
+}
+
+.movie-overlay .content .movie-image {
+  width: 50%;
+}
+
+.movie-overlay .content .movie-details {
+  padding-left: 22px;
+  width: 50%;
+}
+.movie-overlay .movie-details .overview {
+  padding: 15px 0;
+}
+
+.movie-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.release-date-text, .vote-average {
+  font-weight: 600;
+}
