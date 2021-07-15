@@ -1,14 +1,17 @@
 import React from 'react';
 
 import { getBackdropUrl, parseDate } from '../utils';
-import './movieOverlay.css';
+import closeIcon from '../images/close-icon.svg'
+import './MovieOverlay.css';
 
 const MovieOverlay = ({ movie, handleCloseClick }) => (
   <div className="overlay-container">
     <div className="movie-overlay">
       <div className="header">
         <h3 className="title">{movie.title}</h3>
-        <button onClick={handleCloseClick} className="close">&times;</button>
+        <button onClick={handleCloseClick} className="close">
+          <img src={closeIcon} alt="Close icon" />
+        </button>
       </div>
       <div className="content">
         <div className="movie-image" style={{ backgroundImage: `url("${getBackdropUrl(movie.poster_path)}")` }}></div>

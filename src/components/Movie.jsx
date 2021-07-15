@@ -1,6 +1,6 @@
 import React from 'react';
 import { getBackdropUrl } from '../utils';
-import './movie.css';
+import './Movie.css';
 
 const Movie = ({ movie, handleClick }) => (
   <div className="movie" onClick={handleClick} tabIndex="0">

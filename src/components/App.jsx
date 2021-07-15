@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Movie from './Movie';
-import api from '../api';
-
-import logo from '../images/logo.svg';
 import MovieOverlay from './MovieOverlay';
-import './app.css'
+import Header from './Header';
+import api from '../api';
+import './App.css'
 
 const App = () => {
   const [recentMovies, setRecentMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState()
+  const [filter, setFilter] = useState("")
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState()
 
@@ -31,18 +31,19 @@ const App = () => {
     setSelectedMovie(null)
   }
 
+  const filteredMovies = useMemo(() => (
+    recentMovies.filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
+  ))
+
   return (
     <>
       <div className="movies-page">
-        <div className="header">
-          <img src={logo} alt="Timescale" />
-          <input type="search" name="search" id="search" placeholder="Search for a movie" />
-        </div>
+        <Header handleInputChange={setFilter} />
         <hr />
         <h2>Most Recent Movies</h2>
         <div className="movies-list">
           {
-            recentMovies.map((movie, i) => (
+            filteredMovies.map((movie, i) => (
               <Movie movie={movie} key={movie.title} handleClick={selectMovie(i)} />
             ))
           }

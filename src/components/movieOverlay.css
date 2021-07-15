@@ -7,17 +7,6 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
-.close {
-  border: 1px solid #141E35;
-  background: none;
-  font-size: 25px;
-  font-weight: 200;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  line-height: 20px;
-}
-
 .movie-overlay {
   position: relative;
   margin: auto;
@@ -31,6 +20,15 @@
   padding: 0px 20px 27px 27px;
 }
 
+.close {
+  background: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
 .movie-overlay .header {
   display: flex;
   justify-content: space-between;
@@ -39,7 +37,7 @@
 }
 
 .movie-overlay .header .title {
-  /* margin: 0; */
+  margin: 0;
   padding: 0;
 }
 
@@ -55,6 +53,7 @@
 .movie-overlay .content .movie-details {
   padding-left: 22px;
   width: 50%;
+  font-size: 14px;
 }
 .movie-overlay .movie-details .overview {
   padding: 15px 0;
