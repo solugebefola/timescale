@@ -4,6 +4,8 @@ import MovieOverlay from './MovieOverlay';
 import Header from './Header';
 import api from '../api';
 import './App.css'
+import Loading from './Loading';
+import Error from './Error';
 
 const App = () => {
   const [recentMovies, setRecentMovies] = useState([])
@@ -13,10 +15,10 @@ const App = () => {
   const [error, setError] = useState()
 
   useEffect(() => {
-    getRecent()
+    getRecentMovies()
   }, [])
 
-  const getRecent = () => {
+  const getRecentMovies = () => {
     api.getRecentMovies()
       .then(setRecentMovies)
       .catch(setError)
@@ -33,7 +35,7 @@ const App = () => {
 
   const filteredMovies = useMemo(() => (
     recentMovies.filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
-  ))
+  ), [filter, recentMovies.length])
 
   return (
     <>
@@ -42,6 +44,8 @@ const App = () => {
         <hr />
         <h2>Most Recent Movies</h2>
         <div className="movies-list">
+          {loading && <Loading />}
+          {!!error && <Error error={error} />}
           {
             filteredMovies.map((movie, i) => (
               <Movie movie={movie} key={movie.title} handleClick={selectMovie(i)} />

@@ -43,18 +43,20 @@
 
 .movie-overlay .content {
   display: flex;
+  flex-wrap: wrap;
   flex: 1;
 }
 
 .movie-overlay .content .movie-image {
-  width: 50%;
+  height: 420px;
+  width: 100%;
 }
 
 .movie-overlay .content .movie-details {
-  padding-left: 22px;
-  width: 50%;
+  padding-top: 10px;
   font-size: 14px;
 }
+
 .movie-overlay .movie-details .overview {
   padding: 15px 0;
 }
@@ -62,8 +64,23 @@
 .movie-image {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .release-date-text, .vote-average {
   font-weight: 600;
+}
+
+@media screen and (min-width: 426px) {
+  .movie-overlay .content .movie-image {
+    width: 50%;
+  }
+  
+  .movie-overlay .content .movie-details {
+    padding-top: 0;
+    padding-left: 22px;
+    width: 50%;
+    font-size: 14px;
+  }
+  
 }
